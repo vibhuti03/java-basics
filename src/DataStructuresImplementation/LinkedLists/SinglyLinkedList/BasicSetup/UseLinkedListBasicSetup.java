@@ -1,4 +1,4 @@
-package DataStructuresImplementation.LinkedLists.BasicSetup;
+package DataStructuresImplementation.LinkedLists.SinglyLinkedList.BasicSetup;
 
 public class UseLinkedListBasicSetup {
     public static void main(String[] args) {

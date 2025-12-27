@@ -1,4 +1,4 @@
-package DataStructuresImplementation.LinkedLists.BasicSetup;
+package DataStructuresImplementation.LinkedLists.SinglyLinkedList.BasicSetup;
 
 class Node{
     int data;
