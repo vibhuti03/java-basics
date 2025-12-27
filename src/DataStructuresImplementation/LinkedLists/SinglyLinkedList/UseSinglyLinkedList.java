@@ -16,11 +16,14 @@ public class UseSinglyLinkedList {
 
         System.out.println(singlyLinkedList.search("Beautiful"));
 
-        singlyLinkedList.insert("This", 2);
+        head = singlyLinkedList.insert("Welcome", 1);
         System.out.println(head.data + "----" + head.next.data + "----" + head.next.next.data + "----" + head.next.next.next.data);
 
 
-        head = singlyLinkedList.delete(1);
-        System.out.println(head.data + "----" + head.next.data + "----" + head.next.next.data);// + "----" + head.next.next.next.data);
+        head = singlyLinkedList.delete(2);
+        System.out.println(head.data + "----" + head.next.data + "----" + head.next.next.data);
+
+        head = singlyLinkedList.reverse();
+        System.out.println(head.data + "----" + head.next.data + "----" + head.next.next.data);
     }
 }

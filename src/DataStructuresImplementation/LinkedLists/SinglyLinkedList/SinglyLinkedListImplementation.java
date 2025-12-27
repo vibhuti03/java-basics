@@ -31,11 +31,12 @@ public class SinglyLinkedListImplementation implements SinglyLinkedList {
     }
 
     @Override
-    public void insert(Object dataToInsert, int positionToInsertAt) {
+    public Node insert(Object dataToInsert, int positionToInsertAt) {
         Node newNode = new Node(dataToInsert);
         if(positionToInsertAt == 1){ //insert before head
             newNode.next = head;
             head = newNode;
+            return head;
         }
 
         Node previous = head;
@@ -44,13 +45,13 @@ public class SinglyLinkedListImplementation implements SinglyLinkedList {
         }
         newNode.next = previous.next;
         previous.next = newNode;
+
+        return head;
     }
 
     @Override
     public Node delete(int positionToDeleteAt) {
-        Object value;
         if(positionToDeleteAt == 1){ //delete first node or the head node
-            value = head.data;
             head = head.next;
             return head;
         }
@@ -60,8 +61,20 @@ public class SinglyLinkedListImplementation implements SinglyLinkedList {
         for(int i=1; i<positionToDeleteAt-1;i++){
             previous = previous.next;
         }
-        value = previous.data;
         previous.next = previous.next.next;
+        return head;
+    }
+
+    public Node reverse(){
+        Node current = head;
+        Node previous = null;
+        while(current!=null){
+            Node temp = current.next; //<- saving the next node
+            current.next = previous; //<- reversed the current node
+            previous = current; //<-previous pointer moved to the current node
+            current = temp; //<- current pointer moved to the next node
+        }
+        head = previous;
         return head;
     }
 }
