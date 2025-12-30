@@ -72,8 +72,9 @@ public class DoublyLinkedListImplementation implements DoublyLinkedList{
             i++;
         }
         if(current.next.next!=null) {
-            current.next.next.prev = current;}
-            current.next = current.next.next;
+            current.next.next.prev = current;
+        }
+        current.next = current.next.next;
 
         return head;
     }
