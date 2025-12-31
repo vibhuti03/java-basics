@@ -1,5 +1,7 @@
 package DataStructuresImplementation.Trees.BinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 class Node{
@@ -28,10 +30,10 @@ public class BinaryTreeImplementation implements BinaryTree {
 
         Node root = new Node(value);
 
-        System.out.print("Enter data for left of " +value+ ":\n");
+        System.out.print("Enter data for left of " +value+ ":");
         System.out.println();
         root.left = createTree();
-        System.out.print("Enter data for right of " +value+ ":\n");
+        System.out.print("Enter data for right of " +value+ ":");
         System.out.println();
         root.right = createTree();
 
@@ -65,6 +67,48 @@ public class BinaryTreeImplementation implements BinaryTree {
         //left right node
         postOrder(root.left);
         postOrder(root.right);
-        System.out.print(root.data+"----");
+        System.out.print(root.data+"---");
+    }
+
+    @Override
+    public void levelOrderSameLine(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+        while(!queue.isEmpty())
+        {
+            Node current = queue.poll();
+            System.out.print(current.data+"---");
+
+            if(current.left!=null)
+                queue.add(current.left);
+            if(current.right!=null)
+                queue.add(current.right);
+        }
+    }
+
+    @Override
+    public void levelOrderLevelBasedLine(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+        queue.add(null);
+        while (!queue.isEmpty()){
+            Node current = queue.poll();
+            if(current==null)
+            {
+                if(queue.isEmpty())
+                    return;
+                System.out.println();
+                queue.add(null);
+                continue;
+            }
+
+            System.out.print(current.data+"---");
+            if(current.left!=null)
+                queue.add(current.left);
+            if(current.right!=null)
+                queue.add(current.right);
+        }
     }
 }

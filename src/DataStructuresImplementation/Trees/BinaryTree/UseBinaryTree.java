@@ -14,5 +14,11 @@ public class UseBinaryTree {
 
         System.out.println("\nPostorder traversal");
         binaryTree.postOrder(root);
+
+        System.out.println("\nLevel order traversal (same line)");
+        binaryTree.levelOrderSameLine(root);
+
+        System.out.println("\nLevel order traversal (level based line)");
+        binaryTree.levelOrderLevelBasedLine(root);
     }
 }

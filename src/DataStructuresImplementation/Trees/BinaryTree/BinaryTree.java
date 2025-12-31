@@ -8,4 +8,8 @@ public interface BinaryTree {
     void preOrder(Node root);
 
     void postOrder(Node root);
+
+    void levelOrderSameLine(Node root);
+
+    void levelOrderLevelBasedLine(Node root);
 }
